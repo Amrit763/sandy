@@ -1,0 +1,45 @@
+<div class="container">
+    <form [formGroup]="newsForm">
+        <h3>
+            Add News
+        </h3>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Enter title " formControlName="title">
+            <div class="danger" *ngIf="newsFormControl['title'] && newsFormControl['title'].invalid && newsFormControl['title'].touched">
+                <div *ngIf="newsFormControl['title'].errors?.['required']">required field*</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea type="text" class="form-control" id="description" name="description" rows="5" placeholder="Enter description  about news" formControlName="description"></textarea>
+            <div class="danger" *ngIf="newsFormControl['description'] && newsFormControl['description'].invalid && newsFormControl['description'].touched">
+                <div *ngIf="newsFormControl['description'].errors?.['required']">required field*</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="formFile">News image</label>
+            <input type="file" id="formFile" class="form-control" (change)="fileUpload($event)">
+        </div>
+        <div class="form-group">
+            <label for="categories" class="form-label">Categories Of News</label>
+            <select type="text" id="categories" class="form-select" name="categories" formControlName="categories">
+            <option value="" disabled selected>Choose the categories as per require</option>
+              <option value="service">Service</option>
+              <option value="newportfolio">New portfolio &raquo;</option>
+              <select name="" class="form-select submenu" id="">
+              <option value="service">Service</option>
+              <option value="service">Service</option>
+
+              </select>
+            <option value="aboutus">About Us</option>
+            <option value="testmonials">Testomonials</option>
+
+            </select>
+
+        </div>
+
+        <br>
+        <button type="button" class="btn btn-dark" [disabled]="newsForm.invalid" (click)="submit()">Add News</button>
+    </form>
+</div>

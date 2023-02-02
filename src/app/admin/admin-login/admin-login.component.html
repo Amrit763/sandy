@@ -1,0 +1,25 @@
+<div class="container">
+    <form [formGroup]="loginForm">
+        <h3>
+            Admin account
+        </h3>
+        <div class="form-group">
+            <label for="username">User Name</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" formControlName="username">
+            <div class="danger" *ngIf="loginFormControl['username'] && loginFormControl['username'].invalid && loginFormControl['username'].touched">
+                <div *ngIf="loginFormControl['username'].errors?.['required']">required field*</div>
+                <div *ngIf="loginFormControl['username'].errors?.['username']">not a valid username</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="passord" placeholder="Enter password" formControlName="password">
+            <div class="danger" *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                <div *ngIf="loginForm.get('password')?.errors?.['required']">required field*</div>
+            </div>
+        </div>
+        <br>
+        <!-- [disabled]="loginForm.invalid" -->
+        <button type="submit" class="btn btn-dark" (click)="login()" data-bs-dismiss="modal">Submit</button>
+    </form>
+</div>

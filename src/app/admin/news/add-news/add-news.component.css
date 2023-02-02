@@ -1,0 +1,26 @@
+.navbar {
+    background-color: #276282;
+}
+
+h3 {
+    color: red;
+}
+
+.danger {
+    color: red;
+}
+
+.container {
+    margin-top: 5%;
+    margin-left: 20%;
+    /* border: groove; */
+    padding: 2%;
+    align-items: center;
+    width: 50%;
+    background-color: #e7edf0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.form-group {
+    padding: auto;
+}

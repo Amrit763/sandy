@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-2 col-sm-12 "></div>
+        <div class="col-md-8 col-sm-12  shadow-lg bg-light rounded" style=" padding: 10px">
+            <h2>Admin Sign In</h2>
+            <hr />
+            <form [formGroup]="loginForm">
+                <div class="form-group">
+                    <label for="username">User Name</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" formControlName="username">
+                    <div class="danger" *ngIf="loginFormControl['username'] && loginFormControl['username'].invalid && loginFormControl['username'].touched">
+                        <div *ngIf="loginFormControl['username'].errors?.['required']">required field*</div>
+                        <div *ngIf="loginFormControl['username'].errors?.['username']">not a valid username</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="passord" placeholder="Enter password" formControlName="password">
+                    <div class="danger" *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                        <div *ngIf="loginForm.get('password')?.errors?.['required']">required field*</div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-dark" [disabled]="loginForm.invalid" (click)="login()" data-bs-dismiss="modal">Submit</button>
+                <p class="text-danger mt-2"> WARNING!!! this page is only for Admin</p>
+
+            </form>
+        </div>
+        <div class="col-md-2 col-sm-12"></div>
+    </div>
+</div>

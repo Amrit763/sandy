@@ -1,0 +1,36 @@
+<!-- <p>show-news works!</p> -->
+<div class="container mx-auto p-2">
+    <table class="table ">
+        <thead class="thead-light m-2 p-3" style="background-color: 	rgb(211,211,211);">
+            <tr>
+                <th scope="col" class="p-3">Title</th>
+                <th scope="col" class="p-3">Image</th>
+                <th scope="col" class="p-3">Description</th>
+                <th scope="col" class="p-3">Categories</th>
+                <th scope="col" class="p-3">Action</th>
+
+            </tr>
+        </thead>
+        <tr *ngFor="let news of allNews">
+            <td class="p-3 ">{{news.title}}</td>
+            <td class="p-3">
+                <img style="height:13rem; width: 12rem; border-radius: 10px;" src="{{imageUrl}}{{news.image[0]}}" alt="no image Uploaded">
+            </td>
+            <td class="p-3 ">{{news.description}}</td>
+            <td class="p-3">{{news.categories}}</td>
+            <!-- <td class="p-3">{{news.updatedAt | date:'d MMMM y'}}</td> -->
+            <!-- <td> -->
+            <!-- <button type="button" class="btn btn-warning m-2" routerLink='/admin/edit-news/rm/{{room._id}}'>
+                <i class='far fa-edit' ></i>
+            </button> -->
+            <button type="button" class="btn btn-danger" (click)="deleteNews(news)">
+                <i class='fas fa-trash'></i>
+            </button>
+
+            <!-- </td> -->
+
+        </tr>
+    </table>
+    <!-- <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)"></pagination-controls> -->
+
+</div>

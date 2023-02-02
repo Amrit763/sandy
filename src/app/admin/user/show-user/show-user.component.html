@@ -1,0 +1,33 @@
+<div class="container mx-auto p-2">
+    <table class="table">
+        <!-- <thead class="thead-light"> -->
+        <thead class="thead-light " style="background-color: 	rgb(211,211,211);">
+
+            <tr>
+                <th scope="col" class="p-3">Name</th>
+                <th scope="col" class="p-3">Email</th>
+                <th scope="col" class="p-3">Subject</th>
+                <th scope="col" class="p-3">Message</th>
+                <th scope="col" class="p-3">Role</th>
+
+                <th scope="col" class="p-3">Action</th>
+
+            </tr>
+        </thead>
+        <tr *ngFor="let user of allUser">
+            <td class="p-3">{{user.name}}</td>
+            <td class="p-3">{{user.email}}</td>
+            <td class="p-3">{{user.subject}}</td>
+            <td class="p-3">{{user.message}}</td>
+            <td class="p-3">{{user.role}}</td>
+
+            <!-- <button type="button" class="btn btn-warning m-2" routerLink='/admin/edit/us/{{user._id}}'>
+                <i class='far fa-edit' ></i>
+            </button> -->
+            <button type="button" class="btn btn-danger" (click)="deleteUser(user)">
+                <i class='fas fa-trash'></i>
+            </button>
+
+        </tr>
+    </table>
+</div>
